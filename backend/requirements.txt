@@ -5,7 +5,8 @@ pandas
 numpy
 scikit-learn
 datasets
-google-generativeai
+transformers
+google-genai
 python-dotenv
 sqlalchemy
 pydantic

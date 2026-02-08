@@ -13,8 +13,9 @@ class TicketClassifierService:
         model_path = os.path.join(training_path, 'models', 'fine_tuned_bert')
         
         # Load the fine-tuned BERT model and tokenizer
-        self.tokenizer = AutoTokenizer.from_pretrained(model_path)
-        self.model = AutoModelForSequenceClassification.from_pretrained(model_path)
+        # local_files_only=True ensures paths with spaces work correctly
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path, local_files_only=True)
+        self.model = AutoModelForSequenceClassification.from_pretrained(model_path, local_files_only=True)
         
         # Load the label encoder to get the original class names
         with open(os.path.join(training_path, 'label_encoder.pkl'), 'rb') as f:
