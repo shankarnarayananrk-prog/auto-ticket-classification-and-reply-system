@@ -3,7 +3,7 @@ import axios from 'axios';
 import { LogIn, User, Lock, AlertCircle } from 'lucide-react';
 import './Login.css';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:8000' : '';
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState('');
@@ -108,3 +108,4 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+
